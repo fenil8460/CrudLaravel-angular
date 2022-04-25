@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-student',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentComponent implements OnInit {
 
-  constructor() { }
+  data:any
+
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.getStudent()
   }
+
+  getStudent(){
+    this.http.get('http://127.0.0.1:8000/api/student').subscribe((res)=>{
+      this.data = res;
+      this.data = this.data.results;
+    })
+    }
 
 }

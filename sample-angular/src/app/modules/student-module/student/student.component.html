@@ -8,15 +8,17 @@
                <th>Gender</th>
                <th>Phone No.</th>
                <th>Division</th>
+               <th>Action</th>
            </tr>
        </thead>
        <tbody>
-           <tr>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
+           <tr *ngFor="let item of data">
+               <td>{{item.name}}</td>
+               <td>{{item.address}}</td>
+               <td>{{item.gender}}</td>
+               <td>{{item.division}}</td>
+               <td>{{item.phone_number}}</td>
+               <!-- <td><Button routerLink="/edit" >Edit</Button></td> -->
            </tr>
        </tbody>
    </Table>
